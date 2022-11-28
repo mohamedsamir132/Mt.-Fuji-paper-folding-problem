@@ -1,0 +1,22 @@
+#[Problem 1] How many times to fold paper to exceed the height of Mt.Fuji?
+
+def number_of_times_to_foldpaper(desired_thickness, THICKNESS0 = 0.00008):
+    import math
+    x = desired_thickness / THICKNESS0
+    no_paper_folds = math.log ( x , 2)
+    return no_paper_folds
+print ("The desired number of folds is: {} paper folds" .format(number_of_times_to_foldpaper(3776.0)))
+
+# [Problem 2] Function corresponding to arbitrary thickness
+
+print ("The number of folds to the nearest non-sun star, Proxima Centauri, is: {} paper folds" .format(number_of_times_to_foldpaper(40175000000000000)))
+
+#[Problem 3] Required paper length
+
+def calculate_length_of_paper (no_folds, THICKNESS0 = 0.00008):
+    import math
+    L = math.pi * THICKNESS0/6 * (pow (2,no_folds) + 4) * (pow(2,no_folds) - 1)
+    return L
+print ("The length of paper to reach nearest sun star is: {} meters" . format (calculate_length_of_paper (68.76678801653497)))
+print ("The length of paper to reach Mt Fuji is: {} meters" . format (calculate_length_of_paper (25.492283523798655)))
+print ("The length of paper to reach the moon: {} meters" . format (calculate_length_of_paper(42.12767356964738)))
